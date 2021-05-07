@@ -50,11 +50,11 @@ This will run a total of 100 runs through the specified playwright script across
 
 ### use as node module 
 
-    const startplaywrightLoadTest = require('playwright-loadtest');
-    const results = await startplaywrightLoadTest({
+    const startPlaywrightLoadTest = require('playwright-loadtest');
+    const results = await startPlaywrightLoadTest({
         file, // path to file
-        samplesRequested, // number of samples requested
-        concurrencyRequested, // number of concurrency requested
+        samplesRequested: 2, // number of samples requested
+        concurrencyRequested: 2, // number of concurrency requested
     });
     console.log(results);
     
