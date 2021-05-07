@@ -40,8 +40,9 @@ const stopConcurrencyLogPerformance = (results, concurrencyCount, samplesCount) 
 const executeTheCommand = function({ cmd, concurrencyCount, samplesCount, results }) {
   return new Promise((resolve, reject) => {
     startConcurrencyLogPerformance(results, concurrencyCount, samplesCount);
+    debug(`start - sample: ${samplesCount}, concurrent: ${concurrencyCount}`);
     exec(cmd, function(error, stdout, stderr) {
-      debug(`sample: ${samplesCount}, concurrent: ${concurrencyCount}`);
+      debug(`end - sample: ${samplesCount}, concurrent: ${concurrencyCount}`);
       stopConcurrencyLogPerformance(results, concurrencyCount, samplesCount);
       if(stderr) reject(stderr);
       if(error) reject(error);
